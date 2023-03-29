@@ -1,51 +1,33 @@
+/* Imports */
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 const path = require("path");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
+const corsOptions = require("./config/corsOptions");
 const PORT = process.env.PORT || 3500;
 
+/* Middlewares */
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/public")));
-
 app.use(logger);
-
-const whitelist = [
-  "https://www.youtube.com",
-  "http://127.0.0.1:5500",
-  "http://localhost:3500",
-];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
-
 app.use(cors(corsOptions));
 
-app.get("^/$|index(.html)?", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
-});
+/* Routes */
+app.use("/", require("./routes/root"));
+app.use("/api/employees", require("./routes/api/employees"));
 
-app.get("^/new-page(.html)?", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "new-page.html"));
-});
-
-app.get("^/old-page(.html)?", (req, res) => {
-  res.redirect(301, "/new-page");
-});
-
-app.get("/*", (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+app.all("*", (req, res) => {
+  res.status(404);
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__dirname, "views", "404.html"));
+  } else if (req.accepts("json")) {
+    res.json({ error: "404 Not Found" });
+  } else {
+    res.type("text").send("404 Not Found");
+  }
 });
 
 app.use(errorHandler);
