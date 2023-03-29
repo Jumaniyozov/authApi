@@ -6,3 +6,4 @@
 20230329	09:41:19	373e0524-9320-477b-8613-72d30ba2417d	Error: ENOENT: no such file or directory, stat 'C:\Users\User\Desktop\Sandbox\js-box\routes\views\index.html' 
 20230329	09:41:20	67e4c490-356e-4293-bed9-de441b161b68	Error: ENOENT: no such file or directory, stat 'C:\Users\User\Desktop\Sandbox\js-box\routes\views\index.html' 
 20230329	09:41:20	81953fbd-ad63-4c1a-8941-3e93d781e4a1	Error: ENOENT: no such file or directory, stat 'C:\Users\User\Desktop\Sandbox\js-box\routes\views\index.html' 
+20230329	22:37:03	daeafed6-ffda-4034-ab31-38bf93dad7a7	SyntaxError: Unexpected token e in JSON at position 45 

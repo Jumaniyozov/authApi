@@ -17,6 +17,8 @@ app.use(cors(corsOptions));
 
 /* Routes */
 app.use("/", require("./routes/root"));
+app.use("/api/login", require("./routes/api/auth"));
+app.use("/api/register", require("./routes/api/register"));
 app.use("/api/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {
