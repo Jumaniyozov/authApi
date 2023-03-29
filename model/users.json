@@ -1,14 +1,1 @@
-[
-  {
-    "username": "Islom",
-    "password": "$2b$10$WmN/X24lwxh1Dehg4GIWGOPgEeKdGK0lDgwUJ4lb6NqWZQEcrxJCS"
-  },
-  {
-    "username": "Test user",
-    "password": "$2b$10$roVZnwkRy8gEkAWvvE0Ksew8oA.QGV2RfOb4PTMN6A/jqoUwHEkgi"
-  },
-  {
-    "username": "Test1",
-    "password": "$2b$10$O/hk6LrfLa8Vo7mfeQJlxuVwhRHgbLaZpR7M5nJ4r6B/k/NayCzcm"
-  }
-]
+[{"username":"Test user","password":"$2b$10$roVZnwkRy8gEkAWvvE0Ksew8oA.QGV2RfOb4PTMN6A/jqoUwHEkgi"},{"username":"Test1","password":"$2b$10$O/hk6LrfLa8Vo7mfeQJlxuVwhRHgbLaZpR7M5nJ4r6B/k/NayCzcm"},{"username":"Islom1","password":"$2b$10$e5/GzNQyQqXHiIreX6puoebXUVZHzg36ARpXWwXrk5bZLEEMPSIDi"},{"username":"Islom","password":"$2b$10$WmN/X24lwxh1Dehg4GIWGOPgEeKdGK0lDgwUJ4lb6NqWZQEcrxJCS","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IklzbG9tIiwiaWF0IjoxNjgwMTE4MzkyLCJleHAiOjE2ODAyMDQ3OTJ9.wOavkiYLy_avlJpv5U75Y19Ad7k83LQogRiUFPaPA7c"}]
