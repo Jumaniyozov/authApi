@@ -1,16 +1,7 @@
-const userDB = {
-  users: require("../model/users.json"),
-  setUsers(data) {
-    this.users = data;
-  },
-};
-
+const User = require("../model/User");
 const bcrypt = require("bcrypt");
-
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const fsPromises = require("fs/promises");
-const path = require("path");
+
 const { cookieOptions } = require("../config/cookieSettings");
 
 const handleLogin = async (req, res) => {
@@ -21,7 +12,7 @@ const handleLogin = async (req, res) => {
       .json({ message: "Username and password are required" });
   }
 
-  const foundUser = userDB.users.find((person) => person.username === user);
+  const foundUser = await User.findOne({ username: user }).exec();
 
   if (!foundUser) return res.sendStatus(401);
 
@@ -39,15 +30,8 @@ const handleLogin = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    const otherUsers = userDB.users.filter(
-      (person) => person.username !== foundUser.username
-    );
-    const currentUser = { ...foundUser, refreshToken };
-    userDB.setUsers([...otherUsers, currentUser]);
-    await fsPromises.writeFile(
-      path.join(__dirname, "..", "model", "users.json"),
-      JSON.stringify(userDB.users)
-    );
+    foundUser.refreshToken = refreshToken;
+    const result = await foundUser.save();
 
     res.cookie("jwt", refreshToken, cookieOptions);
 

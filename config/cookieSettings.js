@@ -3,7 +3,7 @@ const cookieOptions = {
   //  1 day
   maxAge: 24 * 60 * 60 * 1000,
   sameSite: "None",
-  secure: true,
+  // secure: true,
 };
 
 const cookieWithoutTimeOptions = {
@@ -11,7 +11,7 @@ const cookieWithoutTimeOptions = {
   //  1 day
   maxAge: 24 * 60 * 60 * 1000,
   sameSite: "None",
-  secure: true,
+  // secure: true,
 };
 
 module.exports = {
