@@ -7,3 +7,4 @@
 20230329	09:41:20	67e4c490-356e-4293-bed9-de441b161b68	Error: ENOENT: no such file or directory, stat 'C:\Users\User\Desktop\Sandbox\js-box\routes\views\index.html' 
 20230329	09:41:20	81953fbd-ad63-4c1a-8941-3e93d781e4a1	Error: ENOENT: no such file or directory, stat 'C:\Users\User\Desktop\Sandbox\js-box\routes\views\index.html' 
 20230329	22:37:03	daeafed6-ffda-4034-ab31-38bf93dad7a7	SyntaxError: Unexpected token e in JSON at position 45 
+20230330	10:31:40	34ab9d56-3c5a-48dd-b376-3e0367ae0f94	TypeError: authHeader?.startWith is not a function 
